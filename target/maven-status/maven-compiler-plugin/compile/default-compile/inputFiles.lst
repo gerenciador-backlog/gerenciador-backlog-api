@@ -1,0 +1,9 @@
+/home/user/Developer/backlog-api/src/main/java/com/gerenciador_backlog_api/GerenciadorBacklogApiApplication.java
+/home/user/Developer/backlog-api/src/main/java/com/gerenciador_backlog_api/config/MapperConfig.java
+/home/user/Developer/backlog-api/src/main/java/com/gerenciador_backlog_api/controller/TaskController.java
+/home/user/Developer/backlog-api/src/main/java/com/gerenciador_backlog_api/dto/TaskRequestDTO.java
+/home/user/Developer/backlog-api/src/main/java/com/gerenciador_backlog_api/dto/TaskResponseDTO.java
+/home/user/Developer/backlog-api/src/main/java/com/gerenciador_backlog_api/mapper/TaskMapper.java
+/home/user/Developer/backlog-api/src/main/java/com/gerenciador_backlog_api/model/Task.java
+/home/user/Developer/backlog-api/src/main/java/com/gerenciador_backlog_api/repository/TaskRepository.java
+/home/user/Developer/backlog-api/src/main/java/com/gerenciador_backlog_api/service/TaskService.java
