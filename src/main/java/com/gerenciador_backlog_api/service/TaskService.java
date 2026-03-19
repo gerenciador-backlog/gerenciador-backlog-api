@@ -1,26 +1,31 @@
 package com.gerenciador_backlog_api.service;
 
+import com.gerenciador_backlog_api.dto.TagRequestDTO;
 import com.gerenciador_backlog_api.dto.TaskRequestDTO;
 import com.gerenciador_backlog_api.dto.TaskResponseDTO;
 import com.gerenciador_backlog_api.mapper.TaskMapper;
+import com.gerenciador_backlog_api.model.Tag;
 import com.gerenciador_backlog_api.model.Task;
+import com.gerenciador_backlog_api.repository.TagRepository;
 import com.gerenciador_backlog_api.repository.TaskRepository;
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
 import java.util.List;
 
 @Service
 public class TaskService {
 
     private final TaskRepository taskRepository;
+    private final TagRepository tagRepository;
     private final TaskMapper taskMapper;
 
     @Autowired
-    public TaskService(TaskRepository taskRepository, TaskMapper taskMapper) {
+    public TaskService(TaskRepository taskRepository, TagRepository tagRepository, TaskMapper taskMapper) {
         this.taskRepository = taskRepository;
+        this.tagRepository = tagRepository;
         this.taskMapper = taskMapper;
     }
 
@@ -37,8 +42,8 @@ public class TaskService {
         Task task = this.taskMapper.toEntity(taskRequestDTO);
         task.setCreatedAt(LocalDateTime.now());
         task.setUpdatedAt(LocalDateTime.now());
-        this.taskRepository.save(task);
-        return taskMapper.toDTO(task);
+        task.setTags(resolveTags(taskRequestDTO.getTags()));
+        return taskMapper.toDTO(taskRepository.save(task));
     }
 
     public TaskResponseDTO updateTask(String id, TaskRequestDTO taskRequestDTO) {
@@ -50,8 +55,9 @@ public class TaskService {
         updatedTask.setDueDate(taskRequestDTO.getDueDate());
         updatedTask.setStatus(taskRequestDTO.getStatus());
         updatedTask.setAssignedTo(taskRequestDTO.getAssignedTo());
-        this.taskRepository.save(updatedTask);
-        return this.taskMapper.toDTO(updatedTask);
+        updatedTask.setTags(resolveTags(taskRequestDTO.getTags()));
+
+        return taskMapper.toDTO(taskRepository.save(updatedTask));
     }
 
     public void deleteTask(String id) {
@@ -59,4 +65,20 @@ public class TaskService {
         taskRepository.delete(deletedTask);
     }
 
+    public List<TaskResponseDTO> getTasksByTag(String tagName) {
+        return taskRepository.findByTagsName(tagName)
+                .stream()
+                .map(taskMapper::toDTO)
+                .toList();
+    }
+
+    private List<Tag> resolveTags(List<TagRequestDTO> tagDTOs) {
+        if (tagDTOs == null || tagDTOs.isEmpty()) {
+            return Collections.emptyList();
+        }
+        return tagDTOs.stream()
+                .map(dto -> tagRepository.findByName(dto.getName())
+                        .orElseGet(() -> tagRepository.save(new Tag(null, dto.getName()))))
+                .toList();
+    }
 }

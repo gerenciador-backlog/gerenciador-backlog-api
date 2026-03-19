@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -29,4 +30,5 @@ public class TaskRequestDTO {
     @NotBlank
     private String assignedTo;
 
+    private List<TagRequestDTO> tags;
 }

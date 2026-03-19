@@ -4,7 +4,6 @@ import com.gerenciador_backlog_api.dto.TaskRequestDTO;
 import com.gerenciador_backlog_api.dto.TaskResponseDTO;
 import com.gerenciador_backlog_api.service.TaskService;
 import jakarta.validation.Valid;
-import org.bson.types.ObjectId;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +11,7 @@ import java.util.List;
 
 @RestController
 public class TaskController {
+
     private TaskService taskService;
 
     public TaskController(TaskService taskService) {
@@ -42,6 +42,11 @@ public class TaskController {
     @DeleteMapping(path = "/tasks/{id}")
     public void deleteTask(@PathVariable String id) {
         this.taskService.deleteTask(id);
+    }
+
+    @GetMapping(path = "/tasks/by-tag")
+    public List<TaskResponseDTO> getTasksByTag(@RequestParam String tagName) {
+        return this.taskService.getTasksByTag(tagName);
     }
 
 }
