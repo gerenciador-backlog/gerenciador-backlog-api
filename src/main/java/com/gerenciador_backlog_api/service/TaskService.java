@@ -2,7 +2,7 @@ package com.gerenciador_backlog_api.service;
 
 import com.gerenciador_backlog_api.dto.TagRequestDTO;
 import com.gerenciador_backlog_api.dto.TaskRequestDTO;
-import com.gerenciador_backlog_api.dto.TaskResponseDTO;
+import com.gerenciador_backlog_api.exception.NotFoundException;
 import com.gerenciador_backlog_api.mapper.TaskMapper;
 import com.gerenciador_backlog_api.model.Tag;
 import com.gerenciador_backlog_api.model.Task;
@@ -21,33 +21,34 @@ public class TaskService {
     private final TaskRepository taskRepository;
     private final TagRepository tagRepository;
     private final TaskMapper taskMapper;
+    private final TagService tagService;
 
     @Autowired
-    public TaskService(TaskRepository taskRepository, TagRepository tagRepository, TaskMapper taskMapper) {
+    public TaskService(TaskRepository taskRepository, TaskMapper taskMapper, TagService tagService, TagRepository tagRepository) {
         this.taskRepository = taskRepository;
-        this.tagRepository = tagRepository;
         this.taskMapper = taskMapper;
+        this.tagRepository = tagRepository;
+        this.tagService = tagService;
     }
 
-    public List<TaskResponseDTO> getTasks() {
-        return taskRepository.findAll().stream().map(taskMapper::toDTO).toList();
+    public List<Task> getTasks() {
+        return taskRepository.findAll();
     }
 
-    public TaskResponseDTO getTaskById(String id) {
-        Task task = this.taskRepository.findById(id).orElseThrow(() -> new RuntimeException("Task not found"));
-        return taskMapper.toDTO(task);
+    public Task getTaskById(String id) {
+        return this.taskRepository.findById(id).orElseThrow(() -> new NotFoundException("Task not found"));
     }
 
-    public TaskResponseDTO createTask(TaskRequestDTO taskRequestDTO) {
+    public Task createTask(TaskRequestDTO taskRequestDTO) {
         Task task = this.taskMapper.toEntity(taskRequestDTO);
         task.setCreatedAt(LocalDateTime.now());
         task.setUpdatedAt(LocalDateTime.now());
         task.setTags(resolveTags(taskRequestDTO.getTags()));
-        return taskMapper.toDTO(taskRepository.save(task));
+        return taskRepository.save(task);
     }
 
-    public TaskResponseDTO updateTask(String id, TaskRequestDTO taskRequestDTO) {
-        Task updatedTask = taskRepository.findById(id).orElseThrow(() -> new RuntimeException("Task not found"));
+    public Task updateTask(String id, TaskRequestDTO taskRequestDTO) {
+        Task updatedTask = taskRepository.findById(id).orElseThrow(() -> new NotFoundException("Task not found"));
         updatedTask.setUpdatedAt(LocalDateTime.now());
         updatedTask.setTitle(taskRequestDTO.getTitle());
         updatedTask.setDescription(taskRequestDTO.getDescription());
@@ -56,29 +57,29 @@ public class TaskService {
         updatedTask.setStatus(taskRequestDTO.getStatus());
         updatedTask.setAssignedTo(taskRequestDTO.getAssignedTo());
         updatedTask.setTags(resolveTags(taskRequestDTO.getTags()));
-
-        return taskMapper.toDTO(taskRepository.save(updatedTask));
+        return taskRepository.save(updatedTask);
     }
 
     public void deleteTask(String id) {
-        Task deletedTask = taskRepository.findById(id).orElseThrow(() -> new RuntimeException("Task not found"));
+        Task deletedTask = taskRepository.findById(id).orElseThrow(() -> new NotFoundException("Task not found"));
         taskRepository.delete(deletedTask);
     }
 
-    public List<TaskResponseDTO> getTasksByTag(String tagName) {
-        return taskRepository.findByTagsName(tagName)
-                .stream()
-                .map(taskMapper::toDTO)
-                .toList();
+    public List<Task> getTasksByTag(String tagName) {
+        return taskRepository.findByTagsName(tagName);
+    }
+
+    public Tag findOrCreate(TagRequestDTO tagRequestDTO) {
+        return tagRepository.findByName(tagRequestDTO.getName())
+                .orElseGet(() -> this.tagService.create(tagRequestDTO));
     }
 
     private List<Tag> resolveTags(List<TagRequestDTO> tagDTOs) {
-        if (tagDTOs == null || tagDTOs.isEmpty()) {
+        if (tagDTOs.isEmpty()) {
             return Collections.emptyList();
         }
         return tagDTOs.stream()
-                .map(dto -> tagRepository.findByName(dto.getName())
-                        .orElseGet(() -> tagRepository.save(new Tag(null, dto.getName()))))
+                .map(this::findOrCreate)
                 .toList();
     }
 }

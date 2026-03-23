@@ -1,9 +1,0 @@
-com/gerenciador_backlog_api/dto/TaskResponseDTO.class
-com/gerenciador_backlog_api/config/MapperConfig.class
-com/gerenciador_backlog_api/model/Task.class
-com/gerenciador_backlog_api/controller/TaskController.class
-com/gerenciador_backlog_api/GerenciadorBacklogApiApplication.class
-com/gerenciador_backlog_api/dto/TaskRequestDTO.class
-com/gerenciador_backlog_api/service/TaskService.class
-com/gerenciador_backlog_api/repository/TaskRepository.class
-com/gerenciador_backlog_api/mapper/TaskMapper.class

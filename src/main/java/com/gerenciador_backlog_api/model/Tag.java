@@ -6,9 +6,11 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDateTime;
+
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Document(collection = "tags")
 public class Tag {
 
@@ -16,4 +18,11 @@ public class Tag {
     private String id;
 
     private String name;
+
+    private String color;
+
+    private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
+
 }

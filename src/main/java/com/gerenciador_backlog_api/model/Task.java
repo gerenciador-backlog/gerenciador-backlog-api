@@ -35,4 +35,11 @@ public class Task {
     private LocalDateTime dueDate;
 
     private String assignedTo;
+
+    // todo: pensar em como adicionar:  relatedTasks: string[] --> IDs de tarefas correlacionadas (FE06), similarTasks: string[] --> IDs de tarefas semelhantes (FE05)
+
+    // todo: validar tags existentes, e criar validação personalizada
+
+    // todo: dashboard
+
 }

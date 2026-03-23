@@ -8,17 +8,22 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class TaskMapper {
+
     private final ModelMapper modelMapper;
 
     public TaskMapper(ModelMapper modelMapper) {
         this.modelMapper = modelMapper;
+
+        this.modelMapper.typeMap(TaskRequestDTO.class, Task.class)
+                .addMappings(mapper -> mapper.skip(Task::setTags));
     }
 
     public TaskResponseDTO toDTO(Task task) {
         return modelMapper.map(task, TaskResponseDTO.class);
     }
 
-    public Task toEntity(TaskRequestDTO taskRequestDTO) {
-        return modelMapper.map(taskRequestDTO, Task.class);
+    public Task toEntity(TaskRequestDTO dto) {
+        return modelMapper.map(dto, Task.class);
     }
 }
+
