@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    // 🔥 404 - recurso não encontrado
+    // 404 - recurso não encontrado
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<ErrorResponse> handleNotFound(NotFoundException ex) {
         ErrorResponse error = new ErrorResponse(
@@ -23,7 +23,7 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
 
-    // 🔥 400 - erro de regra de negócio
+    // 400 - erro de regra de negócio
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<ErrorResponse> handleBadRequest(RuntimeException ex) {
         ErrorResponse error = new ErrorResponse(
@@ -36,7 +36,7 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
 
-    // 🔥 500 - erro genérico
+    // 500 - erro genérico
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleGeneral(Exception ex) {
         ErrorResponse error = new ErrorResponse(

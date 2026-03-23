@@ -5,27 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30332483-e801-42ba-abd3-0d7228184c07" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/config/CorsConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/controller/TagController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/exception/ErrorResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/exception/NotFoundException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/service/TagService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/controller/TaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/controller/TaskController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/dto/TagRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/dto/TagRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/dto/TagResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/dto/TagResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/dto/TaskRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/dto/TaskRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/dto/TaskResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/dto/TaskResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/mapper/TaskMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/mapper/TaskMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/model/Tag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/model/Tag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/model/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/model/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/service/TaskService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/service/TaskService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/exception/GlobalExceptionHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +132,7 @@
       <workItem from="1773964702049" duration="28000" />
       <workItem from="1774272768190" duration="4318000" />
       <workItem from="1774292425310" duration="12968000" />
-      <workItem from="1774306351628" duration="59000" />
+      <workItem from="1774306351628" duration="498000" />
     </task>
     <servers />
   </component>
