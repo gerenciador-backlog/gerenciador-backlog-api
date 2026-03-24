@@ -21,11 +21,11 @@ public class TagService {
     }
 
     public Tag getTag(String id) {
-        return this.tagRepository.findById(id).orElseThrow(() -> new NotFoundException("Task not found"));
+        return this.tagRepository.findById(id).orElseThrow(() -> new NotFoundException("Tag not found"));
     }
 
     public Tag getTagByName(String name) {
-        return this.tagRepository.findByName(name).orElseThrow(() -> new NotFoundException("Task not found"));
+        return this.tagRepository.findByName(name).orElseThrow(() -> new NotFoundException("Tag not found"));
     }
 
     public List<Tag> getTags() {
@@ -40,7 +40,7 @@ public class TagService {
     }
 
     public Tag update(String id, TagRequestDTO tagRequestDTO) {
-        Tag tag = this.tagRepository.findById(id).orElseThrow(() -> new NotFoundException("Task not found"));
+        Tag tag = this.tagRepository.findById(id).orElseThrow(() -> new NotFoundException("Tag not found"));
         tag.setUpdatedAt(LocalDateTime.now());
         tag.setName(tagRequestDTO.getName());
         tag.setColor(tagRequestDTO.getColor());
@@ -48,7 +48,7 @@ public class TagService {
     }
 
     public void delete(String id) {
-        Tag tag = this.tagRepository.findById(id).orElseThrow(() -> new NotFoundException("Task not found"));
+        Tag tag = this.tagRepository.findById(id).orElseThrow(() -> new NotFoundException("Tag not found"));
         this.tagRepository.deleteById(tag.getId());
     }
 }
