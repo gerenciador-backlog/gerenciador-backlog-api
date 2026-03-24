@@ -1,5 +1,7 @@
 package com.gerenciador_backlog_api.dto;
 
+import com.gerenciador_backlog_api.enums.Priority;
+import com.gerenciador_backlog_api.enums.Status;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -20,13 +22,11 @@ public class TaskRequestDTO {
     @NotBlank
     private String description;
 
-    // todo: validacao em enum 'low' | 'medium' | 'high'
-    @NotBlank
-    private String priority;
+    @NotNull
+    private Priority priority;
 
-    // todo: validacao em enum 'todo' | 'in_progress' | 'done'
-    @NotBlank
-    private String status;
+    @NotNull
+    private Status status;
 
     @NotNull
     private LocalDateTime dueDate;

@@ -1,5 +1,7 @@
 package com.gerenciador_backlog_api.dto;
 
+import com.gerenciador_backlog_api.enums.Priority;
+import com.gerenciador_backlog_api.enums.Status;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,8 +17,8 @@ public class TaskResponseDTO {
     private String id;
     private String title;
     private String description;
-    private String status;
-    private String priority;
+    private Status status;
+    private Priority priority;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private LocalDateTime dueDate;

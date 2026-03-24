@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30332483-e801-42ba-abd3-0d7228184c07" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/enums/Priority.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/enums/Status.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/service/TagService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/service/TagService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/dto/TaskRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/dto/TaskRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/dto/TaskResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/dto/TaskResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/model/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciador_backlog_api/model/Task.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +22,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -135,7 +139,9 @@
       <workItem from="1774272768190" duration="4318000" />
       <workItem from="1774292425310" duration="12968000" />
       <workItem from="1774306351628" duration="611000" />
-      <workItem from="1774313826095" duration="157000" />
+      <workItem from="1774313826095" duration="1527000" />
+      <workItem from="1774316019951" duration="371000" />
+      <workItem from="1774327339255" duration="2136000" />
     </task>
     <servers />
   </component>

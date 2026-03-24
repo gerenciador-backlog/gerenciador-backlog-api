@@ -1,5 +1,7 @@
 package com.gerenciador_backlog_api.model;
 
+import com.gerenciador_backlog_api.enums.Priority;
+import com.gerenciador_backlog_api.enums.Status;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,9 +26,9 @@ public class Task {
 
     private String description;
 
-    private String status;
+    private Status status;
 
-    private String priority;
+    private Priority priority;
 
     private LocalDateTime createdAt;
 
@@ -38,7 +40,7 @@ public class Task {
 
     // todo: pensar em como adicionar:  relatedTasks: string[] --> IDs de tarefas correlacionadas (FE06), similarTasks: string[] --> IDs de tarefas semelhantes (FE05)
 
-    // todo: validar tags existentes, e criar validação personalizada
+    // todo: validar tags existentes / criar validação personalizada
 
     // todo: dashboard
 
