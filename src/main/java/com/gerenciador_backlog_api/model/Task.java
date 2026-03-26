@@ -20,8 +20,6 @@ public class Task {
     @Id
     private String id;
 
-    private List<Tag> tags;
-
     private String title;
 
     private String description;
@@ -38,7 +36,11 @@ public class Task {
 
     private String assignedTo;
 
-    // todo: pensar em como adicionar:  relatedTasks: string[] --> IDs de tarefas correlacionadas (FE06), similarTasks: string[] --> IDs de tarefas semelhantes (FE05)
+    private List<Tag> tags;
+
+    private List<String> relatedTasks;
+
+    // todo: pensar em como adicionar:  similarTasks: string[] --> IDs de tarefas semelhantes (FE05)
 
     // todo: validar tags existentes / criar validação personalizada
 

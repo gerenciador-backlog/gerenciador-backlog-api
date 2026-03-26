@@ -24,5 +24,6 @@ public class TaskResponseDTO {
     private LocalDateTime dueDate;
     private String assignedTo;
     private List<TagResponseDTO> tags;
+    private List<String> relatedTasks;
     
 }

@@ -3,6 +3,7 @@ package com.gerenciador_backlog_api.controller;
 import com.gerenciador_backlog_api.dto.TaskRequestDTO;
 import com.gerenciador_backlog_api.dto.TaskResponseDTO;
 import com.gerenciador_backlog_api.mapper.TaskMapper;
+import com.gerenciador_backlog_api.model.Task;
 import com.gerenciador_backlog_api.service.TaskService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -17,7 +18,7 @@ public class TaskController {
     private final TaskService taskService;
     private final TaskMapper taskMapper;
 
-    public TaskController(TaskService taskService,  TaskMapper taskMapper) {
+    public TaskController(TaskService taskService, TaskMapper taskMapper) {
         this.taskService = taskService;
         this.taskMapper = taskMapper;
     }
@@ -51,6 +52,11 @@ public class TaskController {
     @GetMapping(path = "/tasks/by-tag")
     public List<TaskResponseDTO> getTasksByTag(@RequestParam String tagName) {
         return this.taskService.getTasksByTag(tagName).stream().map(taskMapper::toDTO).collect(Collectors.toList());
+    }
+
+    @GetMapping(path = "/tasks/{id}/similar")
+    public List<TaskResponseDTO> getSimilarTasks(@PathVariable String id) {
+        return this.taskService.getTasksRelatedById(id).stream().map(taskMapper::toDTO).collect(Collectors.toList());
     }
 
 }
