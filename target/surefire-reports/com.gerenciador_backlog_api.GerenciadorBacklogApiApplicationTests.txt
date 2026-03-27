@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.gerenciador_backlog_api.GerenciadorBacklogApiApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.370 s -- in com.gerenciador_backlog_api.GerenciadorBacklogApiApplicationTests
